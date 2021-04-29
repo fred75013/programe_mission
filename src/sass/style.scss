@@ -1,0 +1,297 @@
+//couleurs  récurrentes
+$color-search-bar: #bebbbb8a;
+$color-title: #d20a32;
+$color-body: white;
+$color-bg: #191919;
+$mobile-width: 750px;
+
+//mixin
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url("../fonts/Roboto-Medium.ttf");
+}
+//mixin link
+@mixin visited {
+  text-decoration: none;
+  position: relative;
+  color: white;
+}
+@mixin after {
+  content: "";
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  background: $color-title;
+  transition: 0.2s;
+}
+
+@mixin width {
+  width: 100%;
+}
+
+@mixin block {
+  display: block;
+  padding: 0.5em;
+}
+
+@mixin blockhover {
+  background: #eee;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: $color-bg;
+  font-family: "Roboto-Medium", sans-serif;
+  font-size: 100%;
+  color: $color-body;
+}
+
+//animation obligatoire
+a,
+a:visited,
+.test,
+.test:visited {
+  @include visited();
+}
+
+a:after,
+a:visited:after,
+.test:after,
+.test:visited:after {
+  @include after();
+}
+
+a:hover:after,
+a:visited:hover:after,
+.test:hover:after,
+.test:visited:hover:after {
+  @include width();
+}
+
+a.block,
+a:visited.block,
+.test.block,
+.test:visited.block {
+  @include block();
+}
+
+a.block:hover,
+a:visited.block:hover,
+.test.block:hover,
+.test:visited.block:hover {
+  @include blockhover();
+}
+
+.test:hover {
+  cursor: pointer;
+}
+
+//footer
+footer {
+  margin-bottom: 20px;
+}
+.delimitor {
+  width: 100%;
+  height: 7px;
+  background-color: $color-title;
+  margin-top: 20px;
+  margin-bottom: 2px;
+}
+//Search Bar
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.header h1 {
+  color: $color-title;
+}
+.search-div {
+  border-radius: 100rem;
+  border: 1px solid $color-search-bar;
+  margin: 20px;
+  max-height: 38px;
+  overflow: hidden;
+  min-width: 250px;
+}
+.search {
+  display: flex;
+  justify-content: center;
+}
+#search {
+  border-radius: 100rem;
+  border: none;
+  outline: none;
+  padding: 0;
+  background-color: $color-bg;
+  color: white;
+}
+#search:focus {
+  background-color: $color-bg;
+}
+.search-div:hover {
+  box-shadow: 2px 2px 5px $color-search-bar, -2px -2px 5px $color-search-bar;
+}
+
+//platforms
+
+.select {
+  min-width: 170px;
+  min-height: 30px;
+  outline: none;
+  border: 1px solid $color-title;
+  background-color: $color-title;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: 1;
+  padding: 7px;
+}
+
+//welcome
+h1 {
+  font-weight: bolder;
+}
+
+//cards
+
+.img-card {
+  width: 300px;
+  height: 180px;
+}
+
+.articles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.gameCards {
+  text-overflow: ellipsis;
+  width: 300px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+//test pour break after tree cards
+.articles:nth-child(3n) {
+  page-break-after: always; /* CSS 2.1 syntax */
+  break-after: always; /* New syntax */
+}
+
+//card hover
+.imgs-card {
+  position: relative;
+}
+.details-card {
+  display: none;
+  width: 300px;
+  height: 180px;
+  text-shadow: 1px 1px 2px $color-search-bar, 0 0 1em $color-bg,
+    0 0 0.2em $color-bg;
+}
+.gameCards:hover {
+  .img-card {
+    filter: blur(4px);
+    position: absolute;
+  }
+  .details-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    margin-left: 5px;
+  }
+}
+
+//show more
+
+.show-more {
+  background-color: $color-title;
+  color: $color-body;
+}
+
+.not-visible {
+  display: none;
+}
+
+//---------------------------Page DETAIL
+
+.banner {
+  height: 400px;
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+}
+.website {
+  align-self: flex-end;
+  margin: 20px;
+  background-color: white;
+  border-color: $color-title;
+  color: #d20a32 !important;
+}
+.title-rating {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.rating {
+  color: $color-title;
+}
+.rdppgt {
+  display: flex;
+  flex-direction: row;
+}
+.rd,
+.pp {
+  display: flex;
+}
+
+.release-date,
+.developer,
+.platforms,
+.publishers {
+  width: 50%;
+}
+
+.rdg {
+  width: 40%;
+}
+
+.ppt {
+  width: 60%;
+}
+
+.stores a {
+  text-decoration: underline $color-title;
+}
+
+//variable utiles
+.color-red {
+  color: $color-title;
+}
+
+//trailer
+
+.iframe {
+  width: 100%;
+  height: 400px;
+}
+
+//screen-shot
+.screen-shot {
+  display: flex;
+  flex-wrap: wrap;
+}
+.img-screen {
+  width: 350px;
+  height: 220px;
+  margin: 10px;
+}
